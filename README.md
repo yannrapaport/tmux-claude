@@ -11,7 +11,7 @@ Press `prefix + i` to open, focus, or unfocus a Claude pane at the bottom of you
 Add to your `~/.tmux.conf`:
 
 ```bash
-set -g @plugin 'yrapaport/tmux-claude'
+set -g @plugin 'yannrapaport/tmux-claude'
 ```
 
 Then press `prefix + I` to install.
@@ -19,7 +19,7 @@ Then press `prefix + I` to install.
 ### Manual
 
 ```bash
-git clone https://github.com/yrapaport/tmux-claude.git ~/.tmux/plugins/tmux-claude
+git clone https://github.com/yannrapaport/tmux-claude.git ~/.tmux/plugins/tmux-claude
 ```
 
 Add to your `~/.tmux.conf`:
