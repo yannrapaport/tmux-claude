@@ -33,11 +33,14 @@ else
     system_prompt=$(cat "$prompt_file")
   fi
 
+  # Build the claude command with permissions for non-interactive tmux management
+  claude_cmd="claude --dangerously-skip-permissions"
+
   if [ -n "$system_prompt" ]; then
-    tmux split-window -v -l "${pane_size}%" "claude --system-prompt '$(echo "$system_prompt" | sed "s/'/'\\\\''/g")'"
-  else
-    tmux split-window -v -l "${pane_size}%" "claude"
+    claude_cmd="$claude_cmd --system-prompt '$(echo "$system_prompt" | sed "s/'/'\\\\''/g")'"
   fi
+
+  tmux split-window -v -l "${pane_size}%" "$claude_cmd"
 
   # Mark the new pane so we can find it later
   tmux set-option -p @claude-pane 1
